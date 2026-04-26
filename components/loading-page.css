@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@900;400&display=swap');
+
+.nl-loader {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.nl-stage {
+  position: relative;
+  display: inline-block;
+}
+
+.nl-label {
+  position: absolute;
+  bottom: -2.2em;
+  right: 0;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 400;
+  font-size: clamp(11px, 1.1vw, 14px);
+  color: rgba(255, 255, 255, 0.32);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: opacity 0.3s;
+}
+
+@keyframes gooOut {
+  0% { transform: scale(1); opacity: 1; filter: blur(0px); }
+  40% { transform: scale(1.18); opacity: 0.7; filter: blur(3px); }
+  100% { transform: scale(1.55); opacity: 0; filter: blur(22px); }
+}
+
+.goo-out {
+  animation: gooOut 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
