@@ -1,10 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowRight, Download, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import HalftoneReveal from '@/components/ui/HalftoneReveal'
 
 const ROLES = ['AI Developer', 'Full Stack Developer', 'AI Systems Engineer']
 
@@ -13,7 +13,6 @@ const PROFILE_IMG = '/profile.jpg'
 
 export function Hero() {
   const [roleIndex, setRoleIndex] = useState(0)
-  const [imgError, setImgError] = useState(false)
   const containerRef = useRef(null)
 
   // Parallax on scroll
@@ -74,21 +73,25 @@ export function Hero() {
             <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-foreground/40 via-foreground/10 to-transparent" />
 
             <div className="relative w-[180px] h-[180px] sm:w-80 sm:h-80 lg:w-[22rem] lg:h-[22rem] rounded-full overflow-hidden border border-border/60 bg-secondary">
-              {!imgError ? (
-                <Image
-                  src={PROFILE_IMG}
-                  alt="Risikesh Somnath T"
-                  fill
-                  sizes="(max-width: 480px) 180px, (max-width: 768px) 320px, 352px"
-                  className="object-cover"
-                  priority
-                  onError={() => setImgError(true)}
-                />
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary">
-                  <span className="text-5xl sm:text-7xl font-bold gradient-text tracking-tight">RST</span>
-                </div>
-              )}
+              <HalftoneReveal
+                src={PROFILE_IMG}
+                inkColor="#141414"
+                paperColor="#fff7e6"
+                mode="mono"
+                dotDensity={71}
+                angle={45}
+                revealRadius={0.4}
+                dotSize={1}
+                shape="circle"
+                contrast={1.15}
+                invert={false}
+                edge={0.8}
+                follow={0.37}
+                idleReveal={0}
+                trigger="hover"
+                borderRadius="9999px"
+                style={{ width: '100%', height: '100%' }}
+              />
               {/* Inner border highlight */}
               <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-foreground/10 pointer-events-none" />
             </div>
