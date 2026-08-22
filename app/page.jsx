@@ -1,15 +1,14 @@
-"use client"
+'use client'
 
 import { useState } from 'react'
-import { Navbar } from '@/components/navbar'
-import { Hero } from '@/components/hero'
-import { About } from '@/components/about'
-import { Skills } from '@/components/skills'
-import { Projects } from '@/components/projects'
-import { Experience } from '@/components/experience'
+import { HeroSection } from '@/components/jack/HeroSection'
+import { MarqueeSection } from '@/components/jack/MarqueeSection'
+import { AboutSection } from '@/components/jack/AboutSection'
+import { SkillsSection } from '@/components/jack/SkillsSection'
+import { ServicesSection } from '@/components/jack/ServicesSection'
+import { ProjectsSection } from '@/components/jack/ProjectsSection'
 import { Contact } from '@/components/contact'
 import LoadingPage from '@/components/loading-page'
-import ParallaxProvider from '@/components/ParallaxProvider'
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -19,37 +18,24 @@ export default function Home() {
   }
 
   return (
-    <ParallaxProvider>
-      <div className="relative min-h-screen text-foreground">
-        <Navbar />
-        <main>
-          <div data-parallax="section">
-            <Hero />
-          </div>
-          <div data-parallax="section">
-            <About />
-          </div>
-          <div data-parallax="section">
-            <Skills />
-          </div>
-          <div data-parallax="section">
-            <Projects />
-          </div>
-          <div data-parallax="section">
-            <Experience />
-          </div>
-          <div data-parallax="section">
-            <Contact />
-          </div>
-        </main>
-        <footer className="border-t border-border/40 py-8 sm:py-10 text-center text-[12px] sm:text-sm text-muted-foreground px-5">
-          <p>
-            Built by{' '}
-            <span className="text-foreground font-medium">Risikesh Somnath T</span>
-            {' '}· {new Date().getFullYear()}
-          </p>
-        </footer>
-      </div>
-    </ParallaxProvider>
+    <div className="relative" style={{ background: '#0C0C0C', overflowX: 'clip' }}>
+      <main>
+        <HeroSection />
+        <MarqueeSection />
+        <AboutSection />
+        <SkillsSection />
+        <ServicesSection />
+        <ProjectsSection />
+        <div id="contact">
+          <Contact />
+        </div>
+      </main>
+      <footer className="border-t border-white/10 px-5 py-8 text-center text-xs text-[#D7E2EA]/60 sm:py-10 sm:text-sm" style={{ background: '#0C0C0C' }}>
+        <p>
+          Built by <span className="font-medium text-[#D7E2EA]">Risikesh Somnath T</span> ·{' '}
+          {new Date().getFullYear()}
+        </p>
+      </footer>
+    </div>
   )
 }
