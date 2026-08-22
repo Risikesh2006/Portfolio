@@ -1,8 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Kanit:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body, #__next {
+  background: #0C0C0C;
+}
+
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 @layer base {
   :root {
@@ -95,6 +106,29 @@ html.lenis { height: auto; }
   66% { transform: translate(-20px, 30px) scale(0.95); }
 }
 .animate-orb { animation: orb-float 20s ease-in-out infinite; }
+
+/* Tech stack marquee rows */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(var(--marquee-shift, -50%)); }
+}
+@keyframes marquee-right {
+  from { transform: translateX(var(--marquee-shift, -50%)); }
+  to { transform: translateX(0); }
+}
+.marquee-track {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  width: max-content;
+}
+.marquee-track--left { animation-name: marquee-left; }
+.marquee-track--right { animation-name: marquee-right; }
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
 
 /* Gradient text */
 .gradient-text {
