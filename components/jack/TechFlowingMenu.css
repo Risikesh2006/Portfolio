@@ -1,0 +1,88 @@
+.tfm-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.tfm-menu {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.tfm-item {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(215, 226, 234, 0.12);
+}
+.tfm-item:first-child {
+  border-top: none;
+}
+
+.tfm-item-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 700;
+  background: none;
+  border: none;
+  text-align: center;
+}
+
+.tfm-item-num {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  opacity: 0.35;
+  font-weight: 500;
+}
+
+.tfm-marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  transform: translate3d(0, 101%, 0);
+}
+
+.tfm-marquee-inner-wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tfm-marquee-inner {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: fit-content;
+  will-change: transform;
+}
+
+.tfm-marquee-part {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 14px;
+  padding: 0 14px;
+}
+
+.tfm-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  border-radius: 9999px;
+  padding: 10px 20px;
+  border: 1.5px solid;
+}
